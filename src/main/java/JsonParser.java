@@ -25,7 +25,6 @@ public class JsonParser {
         elementList = new ArrayList<JSONArray>();
 
         String[] pathNames = f.list();
-        System.out.println(pathNames[0]);
 
         for (int i = 0; i < Objects.requireNonNull(pathNames).length; i++) {
 
@@ -73,22 +72,22 @@ public class JsonParser {
 
     private void createJson(JSONArray elementList, int fileNumber){
         {
-            JSONObject obj = new JSONObject();
 
-            // obj.put("messages", list);
-            JSONObject testObj = new JSONObject();
             ArrayList<JSONObject> filesJson = new ArrayList<JSONObject>();
 
             for (Object o : elementList) {
                 JSONArray modifierList = new JSONArray();
                 JSONArray phonemeList = new JSONArray();
+                JSONObject testObj = new JSONObject();
+                JSONObject obj = new JSONObject();
 
                 for (int j = 0; j < ((JSONArray) o).size(); j++) {
+
                     switch (j) {
                         case 0:
                             //System.out.println(0);
                             testObj.put("type", ((JSONArray) o).get(j));
-                            // System.out.println(testObj);
+                           System.out.println(((JSONArray) o).get(j));
                             break;
                         case 1:
                             testObj.put("baseValue", ((JSONArray) o).get(j));
