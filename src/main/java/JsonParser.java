@@ -94,35 +94,35 @@ public class JsonParser {
                             break;
                         default:
                             JSONObject phonemeObj = new JSONObject();
+                            JSONObject modifierObj = new JSONObject();
                             if (j <= 15) {
+                                modifierObj.put("type", j - 2);
+                                modifierObj.put("baseValue", ((JSONArray) o).get(j));
+                                modifierObj.put("excitementMultiplier", 0);
 
-                                phonemeObj.put("type", j - 2);
-                                phonemeObj.put("baseValue", ((JSONArray) o).get(j));
-                                phonemeObj.put("excitementMultiplier", 0);
-
-                                phonemeList.add(phonemeObj);
+                                modifierList.add(modifierObj);
                             } else {
                                 phonemeObj.put("type", j - 16);
                                 phonemeObj.put("baseValue", ((JSONArray) o).get(j));
                                 phonemeObj.put("excitementMultiplier", 0);
 
-                                modifierList.add(phonemeObj);
+                                phonemeList.add(phonemeObj);
                             }
 
                     }
 
                 }
 
-                JSONObject phonemeFinal = new JSONObject();
-                phonemeFinal.put("phonemes", phonemeList);
-
                 JSONObject modifierFinal = new JSONObject();
                 modifierFinal.put("modifiers", modifierList);
 
+                JSONObject phonemeFinal = new JSONObject();
+                phonemeFinal.put("phonemes", modifierList);
+
                 JSONArray preCompleteJson = new JSONArray();
                 preCompleteJson.add(obj);
-                preCompleteJson.add(phonemeFinal);
                 preCompleteJson.add(modifierFinal);
+                preCompleteJson.add(phonemeFinal);
 
 
                 JSONObject completeJson = new JSONObject();
