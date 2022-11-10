@@ -7,10 +7,9 @@ public class PropertiesGetter {
 
     PropertiesGetter(String configFilePath){
         prop = new java.util.Properties();
+
         try {
             FileInputStream propsInput = new FileInputStream(configFilePath);
-            System.out.println(new File("").getAbsolutePath());
-
             prop.load(propsInput);
 
         } catch (IOException e) {

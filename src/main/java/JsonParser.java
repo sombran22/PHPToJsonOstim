@@ -20,6 +20,7 @@ public class JsonParser {
         outputPath = prop.getPropData("OUTPUT_PATH");
 
         File f = new File(inputPath);
+
         files = new ArrayList<JSONArray>();
         elementList = new ArrayList<JSONArray>();
 
@@ -95,7 +96,7 @@ public class JsonParser {
                         default:
                             JSONObject phonemeObj = new JSONObject();
                             JSONObject modifierObj = new JSONObject();
-                            if (j <= 15) {
+                            if (j <= 13) {
                                 modifierObj.put("type", j - 2);
                                 modifierObj.put("baseValue", ((JSONArray) o).get(j));
                                 modifierObj.put("excitementMultiplier", 0);
@@ -117,7 +118,7 @@ public class JsonParser {
                 modifierFinal.put("modifiers", modifierList);
 
                 JSONObject phonemeFinal = new JSONObject();
-                phonemeFinal.put("phonemes", modifierList);
+                phonemeFinal.put("phonemes", phonemeList);
 
                 JSONArray preCompleteJson = new JSONArray();
                 preCompleteJson.add(obj);
