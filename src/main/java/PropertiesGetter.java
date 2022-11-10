@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -8,6 +9,8 @@ public class PropertiesGetter {
         prop = new java.util.Properties();
         try {
             FileInputStream propsInput = new FileInputStream(configFilePath);
+            System.out.println(new File("").getAbsolutePath());
+
             prop.load(propsInput);
 
         } catch (IOException e) {
@@ -16,7 +19,6 @@ public class PropertiesGetter {
     }
 
     public String getPropData(String element) {
-        String data = prop.getProperty(element);
-        return data;
+        return prop.getProperty(element);
     }
 }

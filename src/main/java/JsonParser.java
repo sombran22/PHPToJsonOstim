@@ -139,7 +139,7 @@ public class JsonParser {
             System.out.println(filesJson.size());
 
         for(int i=0; i<filesJson.size(); i++){
-            FileWrite((filesJson.get(i)), fileNumber, i);
+            FileWrite((filesJson.get(i)), fileNumber+1, i+1);
         }
     }
 
