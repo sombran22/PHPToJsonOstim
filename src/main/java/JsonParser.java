@@ -25,6 +25,7 @@ public class JsonParser {
         elementList = new ArrayList<JSONArray>();
 
         String[] pathNames = f.list();
+        System.out.println(pathNames[0]);
 
         for (int i = 0; i < Objects.requireNonNull(pathNames).length; i++) {
 
@@ -96,7 +97,7 @@ public class JsonParser {
                         default:
                             JSONObject phonemeObj = new JSONObject();
                             JSONObject modifierObj = new JSONObject();
-                            if (j <= 13) {
+                            if (j <= 15) {
                                 modifierObj.put("type", j - 2);
                                 modifierObj.put("baseValue", ((JSONArray) o).get(j));
                                 modifierObj.put("excitementMultiplier", 0);
